@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/payment")
+@RequestMapping("/checkout")
 public class PaymentController {
 
     private PaymentService paymentService;
@@ -21,20 +21,20 @@ public class PaymentController {
         this.paymentService = paymentService;
     }
 
-    @ModelAttribute("paymentOption")
+    @ModelAttribute("user")
     public PaymentOptionDTO paymentOptionDTO() {
         return new PaymentOptionDTO();
     }
 
     @GetMapping
     public String showPaymentForm() {
-        return "payment";
+        return "checkout";
     }
 
     @PostMapping
     public String paymentReceipt(@ModelAttribute("paymentOption")PaymentOptionDTO paymentOptionDTO) {
         paymentService.save(paymentOptionDTO);
-        return "redirect:/payment?success";
+        return "redirect:/checkout?success";
     }
 
 }
