@@ -1,7 +1,7 @@
 package com.EasyBid.PaymentService.web.controller;
 
-import com.EasyBid.PaymentService.service.PaymentService;
-import com.EasyBid.PaymentService.web.dto.PaymentOptionDTO;
+import com.EasyBid.PaymentService.service.InvoiceService;
+import com.EasyBid.PaymentService.web.dto.InvoiceDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,31 +10,36 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/checkout")
+@RequestMapping("/")
 public class PaymentController {
 
-    private PaymentService paymentService;
+    private InvoiceService invoiceService;
 
     @Autowired
-    public PaymentController(PaymentService paymentService) {
+    public PaymentController(InvoiceService invoiceService) {
         super();
-        this.paymentService = paymentService;
+        this.invoiceService = invoiceService;
     }
 
     @ModelAttribute("user")
-    public PaymentOptionDTO paymentOptionDTO() {
-        return new PaymentOptionDTO();
+    public InvoiceDTO paymentOptionDTO() {
+        return new InvoiceDTO();
     }
 
-    @GetMapping
+    @GetMapping("/")
     public String showPaymentForm() {
         return "checkout";
     }
 
     @PostMapping
-    public String paymentReceipt(@ModelAttribute("paymentOption")PaymentOptionDTO paymentOptionDTO) {
-        paymentService.save(paymentOptionDTO);
-        return "redirect:/checkout?success";
+    public String paymentReceipt(@ModelAttribute("invoice") InvoiceDTO invoiceDTO) {
+        invoiceService.save(invoiceDTO);
+        return "redirect:/receipt";
+    }
+
+    @GetMapping("/receipt")
+    public String showReceipt() {
+        return "receipt";
     }
 
 }

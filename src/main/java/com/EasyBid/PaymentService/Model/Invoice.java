@@ -9,8 +9,8 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @Entity
-@Table(name = "payment_option", uniqueConstraints = @UniqueConstraint(columnNames = "cardNum"))
-public class PaymentOption {
+@Table(name = "invoice")
+public class Invoice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,14 +21,20 @@ public class PaymentOption {
     private String expiration;
     private String phoneNumber;
     private String billingAddress;
+    private String amountPaid;
+    private Long itemId;
+    private Long userID;
+    private Long shipmentID;
 
-    public PaymentOption(String cardNum, String cardName, String cvc, String expiration, String phoneNumber, String billingAddress) {
+    public Invoice(String cardNum, String cardName, String cvc, String expiration, String phoneNumber, String billingAddress, Long itemID, Long userID, Long shipmentID) {
         this.cardNum = cardNum;
         this.cardName = cardName;
         this.cvc = cvc;
         this.expiration = expiration;
         this.phoneNumber = phoneNumber;
         this.billingAddress = billingAddress;
+        this.itemId = itemID;
+        this.userID = userID;
+        this.shipmentID = shipmentID;
     }
-
 }

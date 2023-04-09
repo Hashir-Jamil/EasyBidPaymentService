@@ -23,7 +23,7 @@
                     class="icon-bar"></span> <span class="icon-bar"></span> <span
                     class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" th:href="@{/}">Payment Module</a>
+            <a class="navbar-brand" href="#" th:href="@{/}">Checkout</a>
         </div>
     </div>
 </nav>
@@ -37,7 +37,7 @@
 
             <h1> EasyBid Checkout Page </h1>
 
-            <form th:action="@{/registration}" method="post" th:object="${user}">
+            <form th:action="@{/receipt}" method="post" th:object="${user}">
 
                 <div class="form-group">
                     <label class="control-label" for="cardNum"> Card Number </label> <input
@@ -79,7 +79,8 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <input type="submit" name="login-submit" id="login-submit" class="form-control btn btn-primary" value="Checkout"/>
+                            <input type="submit" name="payment-submit" id="payment-submit"
+                                   class="form-control btn btn-primary" value="Checkout"/>
                         </div>
                     </div>
                 </div>

@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PaymentOptionDTO {
+public class InvoiceDTO {
 
     private String cardNum;
     private String cardName;
@@ -17,5 +17,8 @@ public class PaymentOptionDTO {
     private String expiration;
     private String phoneNumber;
     private String billingAddress;
-
+    private String amountPaid;
+    private Long itemId;
+    private Long userId;
+    private Long shipmentId;
 }
