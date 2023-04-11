@@ -20,7 +20,7 @@ public class InvoiceServiceImpl implements InvoiceService {
     @Override
     public Invoice save(InvoiceDTO invoiceDTO) {
 
-        Invoice invoice = new Invoice(
+        return new Invoice(
                 invoiceDTO.getCardNum(),
                 invoiceDTO.getCardNum(),
                 invoiceDTO.getCvc(),
@@ -28,9 +28,6 @@ public class InvoiceServiceImpl implements InvoiceService {
                 invoiceDTO.getPhoneNumber(),
                 invoiceDTO.getBillingAddress(),
                 invoiceDTO.getItemId(),
-                invoiceDTO.getUserId(),
-                invoiceDTO.getShipmentId());
-
-        return invoice;
+                invoiceDTO.getUserId() );
     }
 }

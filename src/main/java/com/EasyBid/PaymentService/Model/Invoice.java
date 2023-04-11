@@ -21,12 +21,11 @@ public class Invoice {
     private String expiration;
     private String phoneNumber;
     private String billingAddress;
-    private String amountPaid;
+    private Double amountPaid;
     private Long itemId;
     private Long userID;
-    private Long shipmentID;
 
-    public Invoice(String cardNum, String cardName, String cvc, String expiration, String phoneNumber, String billingAddress, Long itemID, Long userID, Long shipmentID) {
+    public Invoice(String cardNum, String cardName, String cvc, String expiration, String phoneNumber, String billingAddress, Long itemID, Long userID) {
         this.cardNum = cardNum;
         this.cardName = cardName;
         this.cvc = cvc;
@@ -35,6 +34,5 @@ public class Invoice {
         this.billingAddress = billingAddress;
         this.itemId = itemID;
         this.userID = userID;
-        this.shipmentID = shipmentID;
     }
 }

@@ -36,25 +36,17 @@
         <div class="col-md-6 col-md-offset-3">
             <h1>Transaction Confirmation</h1>
             <hr/>
-            <h3>Your Reciept</h3>
+            <h3>Your Receipt</h3>
             <p>
-            <div key={item.id}>
-                First Name: <br/>
-                Last Name: <br/>
-                Address: <br/>
-                Total Paid: <br/>
-                Payment Method: <br/>
-                Card Number: <br/>
-                <br/>
-                Item ID:{item.itemId} <br/>
-                Carrier: {item.carrier} <br/>
-                Shipping Status {item.shippingStatus} <br/>
-                Shipping Time {item.shippingTime} <br/>
-            </div>
+            <h3> User Id </h3>  <p th:text="${invoice.getUserId()}"/>
+            <h3> Address </h3>  <p th:text="${invoice.getBillingAddress()}"/>
+            <h3> Total Cost </h3>  <p th:text="${invoice.getAmountPaid()}"/>
+            <h3> Item Id: </h3> <p th:text="${invoice.getItemId()}" />
+
             <div>
-                </p>
+                <br/>
                 <h5>Shipping Details</h5>
-                This Item will be shipped in XXX days
+                This Item will be shipped in 5 days
             </div>
         </div>
     </div>

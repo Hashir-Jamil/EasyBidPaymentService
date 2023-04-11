@@ -17,8 +17,8 @@ public class InvoiceDTO {
     private String expiration;
     private String phoneNumber;
     private String billingAddress;
-    private String amountPaid;
+    private Double amountPaid;
     private Long itemId;
     private Long userId;
-    private Long shipmentId;
+
 }

@@ -37,7 +37,12 @@
 
             <h1> EasyBid Checkout Page </h1>
 
-            <form th:action="@{/receipt}" method="post" th:object="${user}">
+            <form th:action="@{/receipt/{userId}/{itemId}/{totalCost} (userId=${userId}, itemId=${itemId},totalCost=${totalCost} ) }"
+                        method="post" th:object="${invoice}">
+
+                <h4> Full Name </h4>  <p th:text="${fullName}"/>
+                <h4> Address </h4>  <p th:text="${address}"/>
+                <h4> Total Cost </h4>  <p th:text="${totalCost}"/>
 
                 <div class="form-group">
                     <label class="control-label" for="cardNum"> Card Number </label> <input
