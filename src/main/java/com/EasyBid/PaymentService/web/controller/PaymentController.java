@@ -59,7 +59,7 @@ public class PaymentController {
         model.addAttribute("address", address);
 
         // get total cost
-        url = "http://localhost:8090/items/"+itemId;
+        url = "http://localhost:8090/auction/items/"+itemId;
         AuctionItem auctionItem = restTemplate.getForObject(url, AuctionItem.class);
         double total_cost = 0.0;
         total_cost += auctionItem.getCurrent_price();
